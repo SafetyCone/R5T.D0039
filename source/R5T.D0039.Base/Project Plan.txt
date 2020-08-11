@@ -1,0 +1,4 @@
+R5T.D0039.Base - Base definitions library for source control file and directory path services.
+
+Goals
+
