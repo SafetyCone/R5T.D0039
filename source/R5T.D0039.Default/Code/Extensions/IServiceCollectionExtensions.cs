@@ -31,7 +31,7 @@ namespace R5T.D0039.Default
         /// <summary>
         /// Adds the <see cref="SourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathProvider"/> implementation of <see cref="ILocalRepositoryDirectoryPathsProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceCollection AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathProvider(this IServiceCollection services,
+        public static IServiceCollection AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsProvider(this IServiceCollection services,
             IServiceAction<ISourceControlRootDirectoryPathProvider> sourceControlRootDirectoryPathProviderAction)
         {
             services
@@ -45,10 +45,10 @@ namespace R5T.D0039.Default
         /// <summary>
         /// Adds the <see cref="SourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathProvider"/> implementation of <see cref="ILocalRepositoryDirectoryPathsProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceAction<ILocalRepositoryDirectoryPathsProvider> AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathProviderAction(this IServiceCollection services,
+        public static IServiceAction<ILocalRepositoryDirectoryPathsProvider> AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsProviderAction(this IServiceCollection services,
             IServiceAction<ISourceControlRootDirectoryPathProvider> sourceControlRootDirectoryPathProviderAction)
         {
-            var serviceAction = ServiceAction.New<ILocalRepositoryDirectoryPathsProvider>(() => services.AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathProvider(
+            var serviceAction = ServiceAction.New<ILocalRepositoryDirectoryPathsProvider>(() => services.AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsProvider(
                 sourceControlRootDirectoryPathProviderAction));
 
             return serviceAction;
