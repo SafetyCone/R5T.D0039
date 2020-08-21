@@ -3,6 +3,7 @@
 using Microsoft.Extensions.DependencyInjection;
 
 using R5T.Dacia;
+using R5T.Lombardy;
 
 
 namespace R5T.D0039.Default
@@ -50,6 +51,36 @@ namespace R5T.D0039.Default
         {
             var serviceAction = ServiceAction.New<ILocalRepositoryDirectoryPathsProvider>(() => services.AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsProvider(
                 sourceControlRootDirectoryPathProviderAction));
+
+            return serviceAction;
+        }
+
+        /// <summary>
+        /// Adds the <see cref="SourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsListProvider"/> implementation of <see cref="ILocalRepositoryDirectoryPathsListProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// </summary>
+        public static IServiceCollection AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsListProvider(this IServiceCollection services,
+            IServiceAction<ISourceControlRootDirectoryPathProvider> sourceControlRootDirectoryPathProviderAction,
+            IServiceAction<IStringlyTypedPathOperator> stringlyTypedPathOperatorAction)
+        {
+            services
+                .AddSingleton<ILocalRepositoryDirectoryPathsListProvider, SourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsListProvider>()
+                .Run(sourceControlRootDirectoryPathProviderAction)
+                .Run(stringlyTypedPathOperatorAction)
+                ;
+
+            return services;
+        }
+
+        /// <summary>
+        /// Adds the <see cref="SourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsListProvider"/> implementation of <see cref="ILocalRepositoryDirectoryPathsListProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// </summary>
+        public static IServiceAction<ILocalRepositoryDirectoryPathsListProvider> AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsListProviderAction(this IServiceCollection services,
+            IServiceAction<ISourceControlRootDirectoryPathProvider> sourceControlRootDirectoryPathProviderAction,
+            IServiceAction<IStringlyTypedPathOperator> stringlyTypedPathOperatorAction)
+        {
+            var serviceAction = ServiceAction.New<ILocalRepositoryDirectoryPathsListProvider>(() => services.AddSourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsListProvider(
+                sourceControlRootDirectoryPathProviderAction,
+                stringlyTypedPathOperatorAction));
 
             return serviceAction;
         }
