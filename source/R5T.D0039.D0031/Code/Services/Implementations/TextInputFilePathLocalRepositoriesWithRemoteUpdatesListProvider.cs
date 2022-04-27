@@ -1,15 +1,15 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 using R5T.D0031;
-using R5T.T0010;
+using R5T.T0010;using R5T.T0064;
 
 
 namespace R5T.D0039.D0031
-{
-    public class TextInputFilePathLocalRepositoriesWithRemoteUpdatesListProvider : ILocalRepositoriesWithRemoteUpdatesListProvider
+{[ServiceImplementationMarker]
+    public class TextInputFilePathLocalRepositoriesWithRemoteUpdatesListProvider : ILocalRepositoriesWithRemoteUpdatesListProvider,IServiceImplementation
     {
         private IInputFilePathProvider InputFilePathProvider { get; }
 

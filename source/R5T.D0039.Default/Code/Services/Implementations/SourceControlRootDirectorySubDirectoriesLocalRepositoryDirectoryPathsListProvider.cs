@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 using R5T.T0010;
 
-using R5T.Lombardy;
+using R5T.Lombardy;using R5T.T0064;
 
 
 namespace R5T.D0039.Default
-{
-    public class SourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsListProvider : ILocalRepositoryDirectoryPathsListProvider
+{[ServiceImplementationMarker]
+    public class SourceControlRootDirectorySubDirectoriesLocalRepositoryDirectoryPathsListProvider : ILocalRepositoryDirectoryPathsListProvider,IServiceImplementation
     {
         private ISourceControlRootDirectoryPathProvider SourceControlRootDirectoryPathProvider { get; }
         private IStringlyTypedPathOperator StringlyTypedPathOperator { get; }

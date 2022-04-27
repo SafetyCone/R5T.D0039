@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 
-using R5T.T0010;
+using R5T.T0010;using R5T.T0064;
 
 
 namespace R5T.D0039.Default
-{
-    public class StaticValuedSourceControlRootDirectoryPathProvider : ISourceControlRootDirectoryPathProvider
+{[ServiceImplementationMarker]
+    public class StaticValuedSourceControlRootDirectoryPathProvider : ISourceControlRootDirectoryPathProvider,IServiceImplementation
     {
         public static SourceControlRootDirectoryPath SourceControlRootDirectoryPath { get; set; }
 
